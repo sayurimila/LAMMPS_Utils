@@ -1,5 +1,6 @@
 import java.io.*;
 import java.io.File;
+import java.util.List;
 import java.util.function.*;
 public class Driver {
 
@@ -11,7 +12,7 @@ public class Driver {
     public static void main(String[] args) throws Exception {
         PrintStream writer = createFile("out.txt");
         writer.println("#===BEGIN REGIONS===");
-        int createdSpheres = createSpheres(writer);
+        int createdSpheres = createNonOverlappingSpheres(writer);
         writer.println("#===BEGIN ATOMS===");
         createAtoms(writer, createdSpheres);
 	   writer.println("#===BEGIN MASS===");
@@ -33,6 +34,17 @@ public class Driver {
         } catch (Exception e) {
             return null;
         }
+    }
+
+    static int createNonOverlappingSpheres(PrintStream writer) {
+        int count = 25;
+        List<Sphere> list = RandomSpatialGenerator.generate(-20, 40, -50, 50, 15, 18, count);
+        for (int i = 0; i < count; i++) {
+            list.get(i).setId(prefix + i);
+            list.get(i).setOptions(options);
+            writer.println(list.get(i).toString());
+        }
+        return count;
     }
 
     static int createSpheres(PrintStream writer) {
@@ -70,6 +82,7 @@ static void createUnion(PrintStream writer, int counter) {
         for(int i = 0; i < counter; i++) {
             writer.print(String.format("%s ","s"+(i+2)));
         }
+    writer.println();
     }
 
 static void createFix(PrintStream writer, int counter) {

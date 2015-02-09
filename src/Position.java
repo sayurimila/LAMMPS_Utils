@@ -36,6 +36,6 @@ public class Position {
     }
 
     public String toString() {
-        return String.format("%3d %3d %3d",x,y,z);
+        return String.format("%5.5f %5.5f %5.5f",x,y,z);
     }
 }

@@ -30,7 +30,7 @@ public class RandomSpatialGenerator {
         }
         return list;
     }
-    
+
 }
 
 

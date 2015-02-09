@@ -12,9 +12,49 @@ public class Sphere {
         this.id = id;
         this.r = r;
         this.radius = radius;
+        setOptions(options);
+    }
+
+    public String getOptions() {
+        return options;
+    }
+
+    public void setOptions(String... options) {
         for (String o : options) {
             this.options = this.options+ " " + o;
         }
+    }
+
+    public double getRadius() {
+        return radius;
+    }
+
+    public void setRadius(double radius) {
+        this.radius = radius;
+    }
+
+    public double getTolerance() {
+        return tolerance;
+    }
+
+    public void setTolerance(double tolerance) {
+        this.tolerance = tolerance;
+    }
+
+    public Position getR() {
+        return r;
+    }
+
+    public void setR(Position r) {
+        this.r = r;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public Sphere(double x, double y, double z) {
@@ -32,7 +72,7 @@ public class Sphere {
 
 
     public String toString() {
-        return String.format("%-10s %-10s sphere %-15s %d%s",
+        return String.format("%-10s %-10s sphere %-15s %f%s",
             "region",
             id,
             r.toString(),
