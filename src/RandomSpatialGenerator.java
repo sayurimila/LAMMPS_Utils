@@ -30,15 +30,7 @@ public class RandomSpatialGenerator {
         }
         return list;
     }
-
-    public static void main(String[] args) {
-
-        List<Sphere> list = RandomSpatialGenerator.generate(0,10,0,10,0,10,4);
-        for(Sphere s : list) {
-            //do something with s
-            //s.x;
-        }
-    }
+    
 }
 
 
